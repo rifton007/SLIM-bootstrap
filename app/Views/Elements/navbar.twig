@@ -1,0 +1,34 @@
+{% import '/Macros/navbar.twig' as navbar %}
+{% import '/Macros/html.twig' as html %}
+<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+    <div class="container">
+        <a href="{{ path_for('home', {'lang' : locale}) }}" class="navbar-brand">{{ company.name }}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsed">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="navbar-collapsed" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                {{ navbar.link('Découvrir', 'aboutus') }}
+                {{ navbar.link('Contact', 'contact') }}
+            </ul>
+            {% if i18n is defined and i18n|length  > 1 %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <div class="btn-group ">
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ _locale | upper }}
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                {% for locale in i18n %}
+                                    {% if locale  != _locale %}
+                                        {{ html.linkBeta(locale | upper, path_for(current_page() , {'lang' : locale}), 'dropdown-item' ) }}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>

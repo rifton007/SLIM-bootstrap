@@ -1,0 +1,172 @@
+{% block body_html %}
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns:v="urn:schemas-microsoft-com:vml">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    </head>
+    <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family: 'Lato','Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'">
+    <table bgcolor="{{ colors.blue }}" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+            <td width="30">
+                &nbsp;
+            </td>
+            <td>
+                <table width="600" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td height="50">
+                            <font color="white" size="4"><strong>{{ subject }}</strong></font>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table bgcolor="white" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+            <td width="30">
+                &nbsp;
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td height="40">
+                <strong>Message</strong>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#f5f5f5">
+                &nbsp;
+            </td>
+            <td bgcolor="#f5f5f5" height="40">
+                <table width="70%" border="0" cellpadding="0" cellspacing="0" style="max-width: 700px;">
+                    <tbody>
+                    <tr>
+                        <td height="10"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font style="word-break:break-all; text-align: justify; line-height: 30px;">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dicta fugiat molestias
+                                omnis optio
+                                porro quisquam, totam? Fugiat illo laudantium officia possimus praesentium. Ad alias sed
+                                suscipit
+                                tempora ut? Nihil?
+                                {{ message }}
+                            </font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="15"></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="10">
+                &nbsp;
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <font color="#a9a9a9" size="2">Message envoyé le {{ 'now'|date('j/m/Y à h:m') }}</font>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" height="10"></td>
+        </tr>
+        <tr>
+            <td colspan="2" height="10">
+                <hr>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" height="10">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td style="text-align: justify">
+                <strong>Information éxpéditeur</strong>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td height="10">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <table width="600" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td height="30" width="20%">Nom</td>
+                        <td>{{ lastname | capitalize }}</td>
+                    </tr>
+                    <tr>
+                        <td height="30" width="20%">Prénom</td>
+                        <td>{{ firstname | capitalize }}</td>
+                    </tr>
+                    <tr>
+                        <td height="30" width="20%">
+                            Email
+                        </td>
+                        <td>
+                            <a href="mailto:{{ email }}?Subject={{ company.name }}%20|%20{{ subject }}">{{ email }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" width="20%">Téléphone</td>
+                        <td>
+                            <a href="tel:{{ phone }}">{{ phone }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="30" width="20%">Langue</td>
+                        <td>{{ _locale | upper }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </body>
+    </html>
+{% endblock %}
+{% block body_text %}
+    SUJET : {{ subject }}
+    MESSAGE
+    -------
+    {{ message }}
+
+    ENVOYÉ LE :
+
+    ÉXPÉDITEUR
+    ----------
+    Nom         : {{ lastname }}
+    Prénom      : {{ firstname }}
+    Email       : {{ email }}
+    Téléphone   : {{ phone }}
+    Langue      : {{ _locale }}
+{% endblock %}

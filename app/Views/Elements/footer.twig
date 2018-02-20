@@ -1,0 +1,52 @@
+<footer class="pt-4">
+    <div class="container">
+        <div class="row pb-2">
+            <div class="col-12 pb-3">
+                <h5>{{ company.name }}</h5>
+            </div>
+            <div class="col-12 pb-3 col-sm-4">
+                <p>
+                    {{ company.address }}<br>
+                    {{ company.postcode }} {{ company.city }}<br>
+                    {{ company.phone }}<br>
+                    {{ company.webiste }}<br>
+                    {{ company.email }}<br>
+                </p>
+            </div>
+            <div class="col-12 pb-3 col-sm-4">
+                <a href="{{ path_for('home', {'lang' : locale}) }}">Page d'accueil</a>
+                <br>
+                <a href="{{ path_for('aboutus', {'lang' : locale}) }}">Découvrir</a>
+                <br>
+                <a href="{{ path_for('contact', {'lang' : locale}) }}">Contact</a>
+                <br>
+            </div>
+            <div class="col-12 pb-3 col-sm-4">
+                {% if socials is not empty %}
+                    {% for key,link in socials %}
+                        <a href="http::/www.{{ link }}" class="badge badge-secondary">
+                            <i class="fab fa-{{ key }}"></i>&ensp;{{ key | capitalize }}
+                        </a><br>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-8 pb-3">
+                <small>
+                    <a href="">Sitemap</a>
+                    &ensp;|&ensp;
+                    <a href="{{ path_for('policy', {'lang' : locale}) }}">Confidentialité</a>
+                    &ensp;|&ensp;
+                    <a href="">Informations légales</a>
+                </small>
+            </div>
+            <div class="col-sm-12 col-md-4 pb-3 text-left text-dm-right">
+                <small>
+                    <i class="far fa-copyright"></i> {{ "now"|date('Y') }} Created by
+                    <a href="https://www.facebook.com/innovaweb.be/" target="_blank">Innovaweb</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</footer>

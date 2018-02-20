@@ -1,0 +1,90 @@
+{% macro append(value, name, type) %}
+
+    {% if attribute(flash.validator, name) is defined %}
+        {% set textColor = 'text-danger' %}
+        {% set bgColor = 'border-danger' %}
+    {% endif %}
+
+    <div class="input-group-append">
+        {% if type == 'label' %}
+            <label class="input-group-text {{ bgColor }} {{ textColor }}">{{ value }}</label>
+        {% else %}
+            <div class="input-group-text {{ bgColor }}">
+                <i class="fa fa-{{ value }} {{ textColor }}"></i>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+{% macro prepend(value, name, type) %}
+
+    {% if attribute(flash.validator, name) is defined %}
+        {% set textColor = 'text-danger' %}
+        {% set bgColor = 'border-danger' %}
+    {% endif %}
+
+    <div class="input-group-prepend">
+        {% if type == 'label' %}
+            <label class="input-group-text  {{ bgColor }} {{ textColor }}">{{ value }}</label>
+        {% else %}
+            <div class="input-group-text  {{ bgColor }}"><i class="fa fa-{{ value }} {{ textColor }}"></i></div>
+        {% endif %}
+    </div>
+{% endmacro %}
+{% macro textarea(name, placeholder) %}
+    {% if attribute(flash.validator, name) is defined %}
+        {% set class = 'is-invalid' %}
+    {% endif %}
+    <textarea name="{{ name }}" id="input-{{ name }}" class="form-control w-100 {{ class }}" placeholder="{{ placeholder }}">{{ attribute(feedback,name) }}</textarea>
+
+    {% if attribute(flash.validator, name) is defined %}
+        <div class="invalid-feedback mb-1 order-3">
+            {{ attribute(flash.validator, name) }}
+        </div>
+    {% else %}
+        <div class="valid-feedback mb-1 order-3">
+            C'est correct!
+        </div>
+    {% endif %}
+
+{% endmacro %}
+{% macro text(name, placeholder) %}
+    {% if attribute(flash.validator, name) is defined %}
+        {% set class = 'is-invalid' %}
+    {% endif %}
+
+    <input type="text" name="{{ name }}" id="input-{{ name }}" class="form-control {{ class }}" placeholder="{{ placeholder }}" value="{{ attribute(feedback,name) }}">
+    {% if flash.validator is defined %}
+        {% if attribute(flash.validator, name) is defined %}
+            <div class="invalid-feedback mb-1 order-3">
+                {{ attribute(flash.validator, name) }}
+            </div>
+        {% else %}
+            <div class="valid-feedback mb-1 order-3">
+                C'est correct!
+            </div>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+{% macro select (name, options, selected, required, includeBlank) %}
+    {% set selected = attribute(feedback, name) %}
+    {% if attribute(flash.validator, name) is defined %}
+        {% set class = 'is-invalid' %}
+    {% endif %}
+    <select class="custom-select {{ class }}" name="{{ name }}" id="input-{{ name }}" {{ required ? 'required' : '' }}>
+        {% if includeBlank %}
+            <option value=""></option>
+        {% endif %}
+        {% for key, value in options %}
+            {% if value is iterable %}
+                <optgroup label="{{ key }}">
+                    {% for subKey, subValue in value %}
+                        <option value="{{ subKey }}" {{ subKey == selected ? 'selected' : '' }}>{{ subValue }}</option>
+                    {% endfor %}
+                </optgroup>
+            {% else %}
+                <option value="{{ key }}" {{ key == selected ? 'selected' : '' }}>{{ value }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+{% endmacro %}
+

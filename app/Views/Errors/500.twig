@@ -1,0 +1,14 @@
+{% extends '/Layouts/default.twig' %}
+{% block content %}
+    {% import '/Macros/html.twig' as html %}
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <i class="fa fa-unlink fa-7x"></i>
+            <h1 class="mt-4"><strong>ERREUR 404</strong></h1>
+            <p>Whoups !!! Ce lien ne débouche vers aucune page connue.<br>
+                Cette ressource n'est donc pas disponible.
+            </p>
+            {{ html.link('Revenir en arriére') }}
+        </div>
+    </div>
+{% endblock %}

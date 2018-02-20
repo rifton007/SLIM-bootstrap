@@ -1,0 +1,99 @@
+{% extends '/Layouts/default.twig' %}
+
+{% import '/Macros/form.twig' as form %}
+{% import '/Macros/html.twig' as html %}
+
+{% block title %}Contactez-nous{% endblock %}
+{% block description %}Ceci est la page de contact{% endblock %}
+{% block content %}
+    <h3>{% trans 'Contact' %}</h3>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <div class="card">
+                <form action="postform" method="post">
+                    {{ csrf() }}
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="input-group mb-3 mr-sm-3">
+                                    {{ form.text('lastname', 'Nom') }}
+                                    {{ form.append('key','lastname') }}
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 mb-3">
+                                {{ form.text('firstname', 'Prénom') }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3 mr-sm-2 d-flex">
+                                    {{ form.text('email', 'Email') }}
+                                    {{ form.append('key','email') }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {{ form.text('phone', 'Numéro de téléphone') }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group mb-3">
+                                    {{ form.prepend('Sujet','subject' ,'label') }}
+                                    {% set options = {
+                                        "Demande d'information" : "Demande d'information",
+                                        "Réclamation" : "Réclamation",
+                                        "Autre" : "Autre",
+                                    } %}
+                                    {{ form.select('subject', options, null, false, false) }}
+                                </div>
+                            </div>
+                        </div>
+                        {{ form.textarea('message', 'Votre message') }}
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-success btn-sm">Envoyer</button>
+                    </div>
+                    <div class="card-footer">
+
+                            <p class="mb-0">
+                                <small>
+                                Les champs marqués d'une {{ html.badgeIcon('key') }} sont obligatoires.
+                                </small>
+                            </p>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="card mt-3 mt-lg-0">
+                <div class="card-body">
+                    <h5>{{ company.name }}</h5>
+                    <p>
+                        {{ company.address }}<br>
+                        {{ company.phone }}<br>
+                        {{ company.webiste }}<br>
+                        {{ company.email }}<br>
+                    </p>
+                </div>
+                {% if socials is not empty %}
+                    <div class="card-footer">
+                        Sur les réseaux sociaux
+                    </div>
+                    <div class="card-body">
+                        {% for key,link in socials %}
+                            <a href="http://www.{{ link }}" class="btn btn-sm btn-outline-primary mb-1" target="_blank">
+                                <i class="fab fa-{{ key }}"></i>&ensp;{{ key | capitalize }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

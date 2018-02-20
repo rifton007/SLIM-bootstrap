@@ -1,0 +1,86 @@
+{% extends '/Layouts/offline.twig' %}
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-5 text-center">{{ company.name }}</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center col-lg-3 col-sm-8">
+            <img src="img/icon_fr.png" alt="language_fr" width="70" class="mb-4">
+            <p class="text-justify-center">
+                Ce site internet est en construction et sera en ligne tout prochainement.
+                <strong>{{ company.name }}</strong> reste à votre entiére disposition et nous sommes joignable dés à
+                présent.
+            </p>
+        </div>
+        <div class="col-12 text-center col-lg-3 col-sm-8">
+            <img src="img/icon_nl.png" alt="language_nl" width="70" class="mb-4">
+            <p class="text-justify-center">
+                Deze website is in aanbouw en zal binnenkort online zijn. <strong>{{ company.name }}</strong> blijft tot
+                uw beschikking en we zijn nu bereikbaar.
+            </p>
+        </div>
+        <div class="col-12 text-center col-lg-3 col-sm-8">
+            <img src="img/icon_en.png" alt="language_en" width="70" class="mb-4">
+            <p class="text-justify-center">
+                This website is under construction and will be online shortly. <strong>{{ company.name }}</strong>
+                remains at your disposal and we are reachable now.
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-3 col-sm-8">
+            <p class="text-center text-info">
+                <small>Ce site est une création de InnovaWEB</small>
+            </p>
+        </div>
+        <div class="col-12 col-lg-3 col-sm-8">
+            <p class="text-center text-info">
+                <small>Deze website is een creatie van InnovaWEB</small>
+            </p>
+        </div>
+        <div class="col-12 col-lg-3 col-sm-8">
+            <p class="text-center text-info">
+                <small>This website is a creation of InnovaWEB</small>
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5 ">
+        <div class="col-12 col-lg-5 col-sm-12 mb-3 ">
+            <div class="card text-center h-100">
+                <div class="card-header">
+                    Propiétaire
+                </div>
+                <div class="card-body">
+                    <h5 class="mb-3">{{ company.name }}</h5>
+                    <p>
+                        <i class="fa fa-map-marker"></i>&ensp;{{ company.address }}
+                        <br>{{ company.postcode }} {{ company.city }}<br>
+                        <i class="fa fa-phone"></i>&ensp;<a href="tel:{{ company.phone }}">{{ company.phone }}</a>
+                        <br>
+                        <i class="fa fa-at"></i>&ensp;<a href="mailto:{{ company.email }}">{{ company.email }}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5 col-sm-12 mb-3 ">
+            <div class="card text-center h-100">
+                <div class="card-header">
+                    Créateur
+                </div>
+                <div class="card-body">
+                    <h5 class="mb-3">InnovaWEB</h5>
+                    <p>
+                        <i class="fa fa-phone"></i>&ensp;<a href="tel:0032484198138">0032 484 198 138</a>
+                        <br>
+                        <i class="fa fa-at"></i>&ensp;<a href="mailto:contact@innovaweb.be">contact@innovaweb.be</a>
+                        <br>
+                        <i class="fab fa-facebook"></i>
+                        <a href="https://www.facebook.com/innovaweb.be" target="_blank">InnovaWEB</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% macro link(label, page, style) %}
+    <a href="{{ page?: '/' }}" class="btn {{ 'btn-' ~ style|default('secondary') }} ">{{ label }}</a>
+{% endmacro %}
+{% macro linkbeta(label, page, class) %}
+    <a href="{{ page?: '/' }}" class="{{ class }}">{{ label }}</a>
+{% endmacro %}
+{% macro badgeIcon(icon, style) %}
+    <span class="badge {{ 'badge-' ~ style|default('secondary') }} "><i class="fa fa-{{ icon }}"></i></span>
+{% endmacro %}
+{% macro badgeText(text, style) %}
+    <span class="badge {{ 'badge-' ~ style|default('secondary') }} ">{{ text }}</span>
+{% endmacro %}
+{% macro icon(icon) %}
+    <i class="{{ icon }}"></i>
+{% endmacro %}

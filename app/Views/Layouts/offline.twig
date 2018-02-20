@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ _locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/favicon.ico">
+    <title>{{ company.name }}</title>
+    <meta name="description" content="{% block description %}{{ company.description }}{% endblock %}">
+    <meta name="author" content="InnovaWEB">
+    <link rel="stylesheet" href="/scss/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/fontawesome/fa-svg-with-js.css">
+    <link rel="stylesheet" href="/css/common.css">
+    {#start_favicon#}
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#9f00a7">
+    <meta name="theme-color" content="#ffffff">
+    {#end_favicon#}
+</head>
+<body>
+<header>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+            <a href="/" class="navbar-brand">{{ company.name }}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsed" aria-controls="navbar-collapsed" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-collapsed">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ml-auto">
+                        <a class="btn btn-outline-success" href="tel:{{ company.phone }}">
+                            <i class="fa fa-phone"></i>&ensp;{{ company.phone }}
+                        </a>
+                        <a class="btn btn-outline-secondary" href="mailto:{{ company.email }}">
+                            <i class="far fa-envelope-open"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<main role="main" class="container main-container">
+    {% block content %}
+    {% endblock %}
+</main>
+<script defer src="/vendor/jquery/jquery-3.3.1.slim.min.js"></script>
+<script defer src="/vendor/fontawesome/fontawesome-all.js"></script>
+<script defer src="/vendor/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

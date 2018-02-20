@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2018-02-12 23:42+0100\n"
+"PO-Revision-Date: 2018-02-13 00:23+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ../../../Views\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _\n"
+"X-Poedit-SearchPath-0: Pages\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: Pages/aboutus.twig:3
+msgid "Découvrir"
+msgstr "Découvrir"
+
+#: Pages/contact.twig:10
+msgid "Contact"
+msgstr "Contact"
+
+#: Pages/home.twig:5
+msgid "Bonjour"
+msgstr "Bonjour"

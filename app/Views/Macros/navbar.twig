@@ -1,0 +1,5 @@
+{% macro link(label,href) %}
+    <li class="nav-item">
+        <a class="nav-link {% if is_current_path(href, {'lang' : locale}) %} active {% endif %} " href="{{ path_for(href, {'lang' : locale }) }}">{{ label }}</a>
+    </li>
+{% endmacro %}

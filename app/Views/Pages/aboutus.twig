@@ -1,0 +1,8 @@
+{% extends '/Layouts/default.twig' %}
+{% block content %}
+    <h1>{% trans 'Découvrir' %}</h1>
+    {#{{ activeClass('about') }}#}
+
+
+    {% if is_current_path('home', {'lang' : locale }) %}active{% endif %}
+{% endblock %}
